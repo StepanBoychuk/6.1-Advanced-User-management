@@ -1,9 +1,8 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
-import { User } from '../schemas/user.schema';
-import { CreateUserDto } from '../dto/createUser.dto';
-import { UpdateUserDto } from '../dto/updateUser.dto';
+import { User } from './schemas/user.schema';
+import { UpdateUserDto } from './dto/updateUser.dto';
 
 @Injectable()
 export class UsersService {
@@ -26,17 +25,6 @@ export class UsersService {
       'username firstName lastName avatarURL rating createdAt updatedAt',
     );
     return user;
-  }
-
-  async create(createUserDto: CreateUserDto): Promise<User> {
-    const user = await this.userModel.findOne({
-      username: createUserDto.username,
-    });
-    if (user) {
-      throw new HttpException('User with this username is already exist', 400);
-    }
-    const newUser = new this.userModel(createUserDto);
-    return await newUser.save();
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {

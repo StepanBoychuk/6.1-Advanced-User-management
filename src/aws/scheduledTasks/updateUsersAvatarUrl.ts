@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
-import { AwsService } from '../services/aws.service';
+import { AwsService } from '../aws.service';
 
 @Injectable()
 export class UpdateUsersAvatarUrl {

@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { hashPassword } from '../services/hashPassword';
 import { NextFunction } from 'express';
+import { HashService } from 'src/hash/hash.service';
 
+const hashService = new HashService();
 @Schema({
   timestamps: true,
 })
@@ -35,7 +36,7 @@ export const UserSchema = SchemaFactory.createForClass(User);
 
 UserSchema.pre('save', async function (next: NextFunction) {
   if (this.password) {
-    this.password = await hashPassword(this.password);
+    this.password = await hashService.hashPassword(this.password);
   }
   next();
 });
@@ -43,7 +44,7 @@ UserSchema.pre('save', async function (next: NextFunction) {
 UserSchema.pre('findOneAndUpdate', async function (next: NextFunction) {
   const update: any = this.getUpdate();
   if (update.password) {
-    const hashedPassword = await hashPassword(update.password);
+    const hashedPassword = await hashService.hashPassword(update.password);
     update.password = hashedPassword;
   }
   next();

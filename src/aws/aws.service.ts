@@ -12,7 +12,7 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoode from 'mongoose';
-import { User } from '../schemas/user.schema';
+import { User } from 'src/users/schemas/user.schema';
 
 @Injectable()
 export class AwsService {

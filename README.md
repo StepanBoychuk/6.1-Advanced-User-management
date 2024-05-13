@@ -1,6 +1,14 @@
-This is my REST API for User managment. It have several endpoints:
+This is my REST API for User managment.
+To run this API local in docker use
 
-On
+> docker-compose build
+
+And
+
+>docker-compose up
+
+It have several endpoints:
+
 >GET api/users
 
 will return list of all users.This endpoint has two query parameters such as **page**(by default is set to 0) and **amount**(by default is set to 3)

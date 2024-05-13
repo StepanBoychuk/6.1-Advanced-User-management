@@ -5,7 +5,7 @@ import {
   PreconditionFailedException,
 } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../users.service';
 
 @Injectable()
 export class IfUnmodifiedSinceMiddleware implements NestMiddleware {

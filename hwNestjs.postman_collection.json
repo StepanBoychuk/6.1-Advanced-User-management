@@ -116,7 +116,7 @@
 					}
 				},
 				"url": {
-					"raw": "ec2-3-70-52-176.eu-central-1.compute.amazonaws.com:3000/api/users/663def5de59a14957e3829fa",
+					"raw": "ec2-3-70-52-176.eu-central-1.compute.amazonaws.com:3000/api/users/6642086ad2d7757be0e924ad",
 					"host": [
 						"ec2-3-70-52-176",
 						"eu-central-1",

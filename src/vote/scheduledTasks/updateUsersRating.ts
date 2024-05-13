@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
-import { User } from '../schemas/user.schema';
+import { User } from '../../users/schemas/user.schema';
 import { Vote } from '../schemas/vote.schema';
 import { Cron, CronExpression } from '@nestjs/schedule';
 
